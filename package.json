@@ -51,7 +51,7 @@
   "dependencies": {},
   "peerDependencies": {},
   "lint-staged": {
-    "*.ts": [
+    "*.tsx": [
       "eslint --fix"
     ]
   }

@@ -5,6 +5,8 @@ const App: React.FC = () => {
     console.log('hio');
   };
   const b = () => {};
+  const c = () => {};
+
   return <div>asdf</div>;
 };
 

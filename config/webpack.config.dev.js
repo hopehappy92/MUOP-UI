@@ -1,59 +1,59 @@
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.tsx",
-  // resolve: {
-  //   extentions: [".tsx", ".ts", ".js"],
-  // },
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "./dist"),
+  entry: './src/index.tsx',
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
   },
-  mode: "development",
-  devtool: "inline-source-map",
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, './dist')
+  },
+  mode: 'development',
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist"),
-    index: "index.html",
-    port: 9000,
+    contentBase: path.resolve(__dirname, './dist'),
+    index: 'index.html',
+    port: 9000
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: ["ts-loader"],
-        exclude: "/node_modules",
+        use: ['ts-loader'],
+        exclude: '/node_modules'
       },
       {
         test: /\.(js|jsx)$/,
-        use: ["babel-loader"],
-        exclude: "/node_modules",
+        use: ['babel-loader'],
+        exclude: '/node_modules'
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
-            options: { minimize: true },
-          },
-        ],
+            loader: 'html-loader',
+            options: { minimize: true }
+          }
+        ]
       },
       {
         test: /\.(css|scss)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-      },
-    ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      }
+    ]
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./public/index.html",
-      filename: "index.html",
+      template: './public/index.html',
+      filename: 'index.html'
     }),
     // new MiniCssExtractPlugin({
     //   filename: "style.css",
     // }),
-    new CleanWebpackPlugin(),
-  ],
+    new CleanWebpackPlugin()
+  ]
 };
