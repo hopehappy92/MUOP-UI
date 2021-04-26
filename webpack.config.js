@@ -1,44 +1,42 @@
 const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
   resolve: {
-    extentions: [".tsx", ".ts", ".js"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname + "/dist"),
+    filename: "bundle.js", // -1...
+    path: path.resolve(__dirname, "./dist"),
   },
+  mode: "development", // -10 .....
   devtool: "inline-source-map",
   devServer: {
-    contentBase: path.resolve("./dist"),
+    // -10 .....
+    // path: path.join(__dirname, "./dist/"),
+    contentBase: path.resolve(__dirname, "./dist"),
     index: "index.html",
     port: 9000,
   },
-  mode: "development",
   module: {
     rules: [
+      // -20 .....
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        loader: "ts-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: "/node_modules",
         use: ["babel-loader"],
+        exclude: /node_modules/,
       },
       {
         test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader",
-            options: { minimize: true },
-          },
-        ],
+        use: ["html-loader"],
       },
       {
         test: /\.(css|scss)$/,
@@ -47,12 +45,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: "./public/index.html", // public/index.html 파일을 읽는다.
-      filename: "index.html", // output으로 출력할 파일은 index.html 이다.
+    new HTMLWebpackPlugin({
+      template: "./public/index.html", // -1...
+      filename: "index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: "style3.css",
+      filename: "style.css",
     }),
     new CleanWebpackPlugin(),
   ],

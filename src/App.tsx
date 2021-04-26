@@ -1,13 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const App: React.FC = () => {
-  const a = () => {
-    console.log('hio');
-  };
-  const b = () => {};
-  const c = () => {};
-
-  return <div>asdf</div>;
+  return <div>hello react</div>;
 };
 
 export default App;
