@@ -8,7 +8,6 @@ export default {
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
-    onMouseOver: { action: 'hover' }
   }
 } as Meta;
 

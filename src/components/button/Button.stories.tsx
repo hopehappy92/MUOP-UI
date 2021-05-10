@@ -14,6 +14,6 @@ const Template: Story<ButtonProps> = (args: ButtonProps) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'ohohohohoh'
+  children: 'button'
 };
 Primary.parameters = { pseudo: { hover: true, focus: true } };
