@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './style.module.css';
+
 type ButtonProps = {
   children: React.ReactNode;
 };

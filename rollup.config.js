@@ -1,9 +1,10 @@
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
-import pkg from './package.json';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import cleanup from 'rollup-plugin-cleanup';
+import postcss from 'rollup-plugin-postcss';
+import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']; // 어떤 확장자를 처리 할 지 정함
 
@@ -22,6 +23,9 @@ export default {
       include: 'node_modules/**'
     }), // CommonJS 형태로 만들어진 모듈도 불러와서 사용 할 수 있게 해줌. 현재 프로젝트 상황에서는 없어도 무방함
     babel({ extensions, include: ['src/**/*'], babelHelpers: 'bundled' }), // Babel을 사용 할 수 있게 해줌
-    cleanup()
+    cleanup(),
+    postcss({
+      extensions: ['.css']
+    })
   ]
 };
