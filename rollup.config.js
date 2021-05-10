@@ -25,7 +25,7 @@ export default {
     babel({ extensions, include: ['src/**/*'], babelHelpers: 'bundled' }), // Babel을 사용 할 수 있게 해줌
     cleanup(),
     postcss({
-      extensions: ['.css']
+      extensions: ['.css', '.scss']
     })
   ]
 };

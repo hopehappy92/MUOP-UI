@@ -7,7 +7,8 @@ export default {
   title: 'Example/Button',
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' }
+    backgroundColor: { control: 'color' },
+    onMouseOver: { action: 'hover' }
   }
 } as Meta;
 
@@ -20,6 +21,7 @@ Primary.args = {
   primary: true,
   label: 'Button'
 };
+Primary.parameters = { pseudo: { hover: true, focus: true } };
 
 export const Secondary = Template.bind({});
 Secondary.args = {

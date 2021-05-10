@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css';
+import './button.scss';
 
 export type TSize = 'small' | 'medium' | 'large';
 
@@ -24,6 +24,10 @@ export interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * Optional hover handler
+   */
+  onMouseOver?: () => void;
 }
 
 /**

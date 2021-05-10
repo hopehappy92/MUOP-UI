@@ -2,12 +2,15 @@ import React from 'react';
 
 import './style.module.css';
 
-type ButtonProps = {
+export type ButtonProps = {
   children: React.ReactNode;
+  onClick: () => void;
 };
 
-const Button = ({ children }: ButtonProps): React.ReactNode => (
-  <button type="button">{children}</button>
+const Button: React.FC<ButtonProps> = ({ children, ...props }: ButtonProps) => (
+  <button type="button" {...props}>
+    {children}
+  </button>
 );
 
 export default Button;
