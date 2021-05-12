@@ -2,14 +2,32 @@ import React from 'react';
 
 import './ButtonStyle.scss';
 
-export type ButtonProps = {
-  children: React.ReactNode;
-  onClick: () => void;
-};
+export type TTheme = 'primary' | 'secondary' | 'warning';
 
-const Button: React.FC<ButtonProps> = ({ children, ...props }: ButtonProps) => (
-  <button type="button" {...props}>
-    {children}
+export type TSize = 'lg' | 'md' | 'sm';
+
+export interface ButtonProps {
+  theme?: TTheme;
+  size?: TSize;
+  value?: string;
+  disabled?: boolean;
+}
+
+const Button: React.FC<ButtonProps> = ({
+  theme = 'primary',
+  size = 'md',
+  ...props
+}: ButtonProps) => (
+  <button
+    type="button"
+    className={[
+      'muop-button',
+      `muop-button-${theme}`,
+      `muop-button-${size}`
+    ].join(' ')}
+    disabled={props.disabled}
+  >
+    {props.value}
   </button>
 );
 

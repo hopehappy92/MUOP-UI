@@ -1,3 +1,46 @@
-button {
-  color: blue;
+@import '../../index.scss';
+
+.muop-button {
+  border-radius: 8%;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  &.muop-button-primary {
+    background-color: $bg-color-primary;
+    border: 1px solid $bd-color-primary;
+    color: white;
+  }
+
+  &.muop-button-secondary {
+    background-color: $bg-color-secondary;
+    border: 1px solid $bd-color-secondary;
+    color: white;
+  }
+
+  &.muop-button-warning {
+    background-color: $bg-color-warning;
+    border: 1px solid $bd-color-warning;
+    color: black;
+  }
+
+  &.muop-button-lg {
+    width: 80px;
+    height: 40px;
+    font-size: $fs-large;
+  }
+
+  &.muop-button-md {
+    width: 60px;
+    height: 30px;
+    font-size: $fs-normal;
+  }
+
+  &.muop-button-sm {
+    width: 45px;
+    height: 25px;
+    font-size: $fs-small;
+  }
 }
