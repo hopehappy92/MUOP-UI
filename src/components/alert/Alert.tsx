@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import './AlertStyle.scss';
 
@@ -42,17 +42,34 @@ const Alert: React.FC<AlertProps> = ({
   backdrop = true,
   handleAlertClose
 }: AlertProps) => {
-  const onClickOutSide = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    if (backdrop) {
-      handleAlertClose?.();
-    }
-  };
+  // useEffect(() => {
+  //   function keyUp(e: KeyboardEvent) {
+  //     console.log(e.key);
+
+  //     document.getElementById('muop-alert')?.addEventListener('keyup', keyUp);
+  //   }
+  // }, []);
+
+  // const onClickOutSide = (e: React.MouseEvent<HTMLDivElement>) => {
+  //   e.preventDefault();
+  //   if (backdrop) {
+  //     handleAlertClose?.();
+  //   }
+  // };
+
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (open) ref.current?.focus();
+    else ref.current?.blur();
+  }, [open]);
 
   const onKeyUpEsc = (e: React.KeyboardEvent<HTMLDivElement>) => {
     console.log(e.key);
-    if (backdrop) {
-      handleAlertClose?.();
+    if (e.key === 'Escape') {
+      if (backdrop) {
+        handleAlertClose?.();
+      }
     }
   };
 
@@ -61,8 +78,11 @@ const Alert: React.FC<AlertProps> = ({
       id="muop-alert"
       role="presentation"
       className="muop-alert"
-      onClick={onClickOutSide}
+      // onClick={onClickOutSide}
       onKeyUp={onKeyUpEsc}
+      tabIndex={-1}
+      ref={ref}
+      onFocus={() => console.log('focus')}
     >
       <div
         className={[
