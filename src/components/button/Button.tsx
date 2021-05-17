@@ -9,25 +9,29 @@ export type TSize = 'lg' | 'md' | 'sm';
 export interface ButtonProps {
   theme?: TTheme;
   size?: TSize;
-  value?: string;
+  children?: React.ReactNode;
   disabled?: boolean;
+  outline?: boolean;
+  loading?: boolean;
+  loadingChildren?: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({
   theme = 'primary',
   size = 'md',
+  outline = false,
   ...props
 }: ButtonProps) => (
   <button
     type="button"
     className={[
       'muop-button',
-      `muop-button-${theme}`,
+      `muop-button-${theme}${outline ? '-outline' : ''}`,
       `muop-button-${size}`
     ].join(' ')}
     disabled={props.disabled}
   >
-    {props.value}
+    {props.loading ? props.loadingChildren : props.children}
   </button>
 );
 
