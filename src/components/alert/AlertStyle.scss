@@ -1,0 +1,52 @@
+@import '../../index.scss';
+
+.muop-alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.muop-alert-inner {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.muop-alert-lg {
+  width: $lg;
+}
+
+.muop-alert-md {
+  width: $md;
+}
+
+.muop-alert-sm {
+  width: $sm;
+}
+
+.muop-alert-none {
+  background-color: $bg-color-light;
+  color: $ft-color-light;
+}
+
+.muop-alert-primary {
+  background-color: $bg-color-primary;
+  color: $ft-color-primary;
+}
+
+.muop-alert-secondary {
+  background-color: $bg-color-secondary;
+  color: $ft-color-secondary;
+}
+
+.muop-alert-warning {
+  background-color: $bg-color-warning;
+  color: $ft-color-warning;
+}
