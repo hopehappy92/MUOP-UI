@@ -8,6 +8,11 @@
     opacity: 0.8;
   }
 
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
+  }
+
   &.muop-button-primary {
     background-color: $bg-color-primary;
     border: 1px solid $bd-color-primary;
@@ -24,6 +29,24 @@
     background-color: $bg-color-warning;
     border: 1px solid $bd-color-warning;
     color: black;
+  }
+
+  &.muop-button-primary-outline {
+    background-color: white;
+    border: 1px solid $bd-color-primary;
+    color: $bg-color-primary;
+  }
+
+  &.muop-button-secondary-outline {
+    background-color: white;
+    border: 1px solid $bd-color-secondary;
+    color: $bg-color-secondary;
+  }
+
+  &.muop-button-warning-outline {
+    background-color: white;
+    border: 1px solid $bd-color-warning;
+    color: $bg-color-warning;
   }
 
   &.muop-button-lg {

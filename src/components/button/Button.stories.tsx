@@ -7,7 +7,9 @@ export default {
   title: 'Components/Button',
   component: Button,
   argTypes: {
-    disabled: { control: 'boolean' }
+    disabled: { control: 'boolean' },
+    outline: { control: 'boolean' },
+    loading: { control: 'boolean' }
   }
 } as Meta;
 
@@ -35,22 +37,21 @@ const Template: Story<ButtonProps> = (args: ButtonProps) => {
   );
 };
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const Default = Template.bind({});
+Default.args = {
   theme: 'primary',
   children: 'primary'
 };
 
-// export const Outline = Template.bind({});
-// Outline.args = {
-//   theme: 'primary',
-//   children: 'primary'
-// };
+export const Outline = Template.bind({});
+Outline.args = {
+  ...Default.args,
+  outline: true
+};
 
-// export const Loading = Template.bind({});
-// Loading.args = {
-//   theme: 'primary',
-//   children: 'primary'
-// };
-
-// Primary.parameters = { pseudo: { hover: true, focus: true } };
+export const Loading = Template.bind({});
+Loading.args = {
+  ...Default.args,
+  loading: true,
+  loadingChildren: <span>Loading..</span>
+};
