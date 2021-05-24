@@ -11,12 +11,13 @@ export default {
     size: 'md'
   },
   argTypes: {
-    backdrop: { control: 'boolean' }
+    backdrop: { control: 'boolean' },
+    footer: { control: 'boolean' }
   }
 } as Meta;
 
 const Template: Story<AlertProps> = (args: AlertProps) => {
-  const { alertText, theme, size, backdrop } = args;
+  const { alertText, theme, size, backdrop, footer, autoClose } = args;
   const [open, setOpen] = useState<boolean>(false);
 
   const handleAlertOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -35,6 +36,8 @@ const Template: Story<AlertProps> = (args: AlertProps) => {
         theme={theme}
         size={size}
         backdrop={backdrop}
+        footer={footer}
+        autoClose={autoClose}
         handleAlertClose={() => setOpen(false)}
       />
     </>
@@ -74,4 +77,10 @@ export const Warning = Template.bind({});
 Warning.args = {
   alertText: 'Warning',
   theme: 'warning'
+};
+
+export const Timer = Template.bind({});
+Timer.args = {
+  alertText: 'Timer',
+  autoClose: 1000
 };
