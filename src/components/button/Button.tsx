@@ -6,13 +6,21 @@ export type TTheme = 'primary' | 'secondary' | 'warning';
 
 export type TSize = 'lg' | 'md' | 'sm';
 
+// TODO: desc 안나옴 ㅠㅠ
 export interface ButtonProps {
+  /** theme */
   theme?: TTheme;
+  /** size */
   size?: TSize;
+  /** children */
   children?: React.ReactNode;
+  /** disabled */
   disabled?: boolean;
+  /** outline by theme */
   outline?: boolean;
+  /** if you want to loading state, set true */
   loading?: boolean;
+  /** children when loading is true */
   loadingChildren?: React.ReactNode;
 }
 
