@@ -1,3 +1,4 @@
 import Button from './components/button/Button';
+import Alert from './components/alert/Alert';
 
-export { Button as default };
+export { Alert, Button as default };
