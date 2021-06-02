@@ -2,43 +2,44 @@ import React, { useEffect, useRef } from 'react';
 
 import './AlertStyle.scss';
 
-type TTheme = 'none' | 'primary' | 'secondary' | 'warning';
+type TTheme = 'default' | 'info' | 'secondary' | 'warning' | 'danger';
 type TSize = 'lg' | 'md' | 'sm';
-type TTime = 500 | 1000 | 1500 | 2000 | 3000;
+type TTime = '500' | '1000' | '1500' | '2000' | '3000';
 
 export interface AlertProps {
   /**
-   * true일 때, alert 활성화
+   * if true, active alert
    * @default false
    */
   open: boolean;
   /**
-   * alert에 들어갈 알림
+   * alert inner text
    */
   alertText: string;
   /**
-   * 색 지정
+   * select theme
    */
   theme?: TTheme;
   /**
-   * 크기 지정
+   * select size
    */
   size?: TSize;
   /**
-   * true일 때, 배경 클릭 alert 닫기 활성화
+   * if true, active alert-close when click outside
    * @default true
    */
   backdrop?: boolean;
   /**
-   * footer 버튼 활성화
+   * if true, active footer
+   * @default true
    */
   footer?: boolean;
   /**
-   * autoclose 활성화 ( ms단위 )
+   * active auto close ( unit : ms )
    */
   autoClose?: TTime;
   /**
-   * 창 닫기
+   * close alert when click close. can't control
    */
   handleAlertClose?: () => void;
 }
@@ -46,7 +47,7 @@ export interface AlertProps {
 const Alert: React.FC<AlertProps> = ({
   open = false,
   alertText,
-  theme = 'none',
+  theme = 'default',
   size = 'md',
   backdrop = true,
   footer = true,
@@ -67,7 +68,7 @@ const Alert: React.FC<AlertProps> = ({
     if (open && autoClose) {
       setTimeout(() => {
         handleAlertClose?.();
-      }, autoClose);
+      }, +autoClose);
     }
   }, [open, autoClose]);
 
@@ -115,7 +116,7 @@ const Alert: React.FC<AlertProps> = ({
       >
         <header>
           <button type="button" onClick={onClickClose}>
-            X
+            x
           </button>
         </header>
         <article>

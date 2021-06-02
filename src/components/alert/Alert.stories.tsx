@@ -7,7 +7,7 @@ export default {
   title: 'Components/Alert',
   component: Alert,
   args: {
-    theme: 'none',
+    theme: 'default',
     size: 'md'
   },
   argTypes: {
@@ -18,11 +18,11 @@ export default {
 
 const Template: Story<AlertProps> = (args: AlertProps) => {
   const { alertText, theme, size, backdrop, footer, autoClose } = args;
-  const [open, setOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleAlertOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setOpen(true);
+    setIsOpen(true);
   };
 
   return (
@@ -31,14 +31,14 @@ const Template: Story<AlertProps> = (args: AlertProps) => {
         Alert Open
       </button>
       <Alert
-        open={open}
+        open={isOpen}
         alertText={alertText}
         theme={theme}
         size={size}
         backdrop={backdrop}
         footer={footer}
         autoClose={autoClose}
-        handleAlertClose={() => setOpen(false)}
+        handleAlertClose={() => setIsOpen(false)}
       />
     </>
   );
@@ -61,10 +61,10 @@ Small.args = {
   size: 'sm'
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
-  alertText: 'Primary',
-  theme: 'primary'
+export const Info = Template.bind({});
+Info.args = {
+  alertText: 'Info',
+  theme: 'info'
 };
 
 export const Secondary = Template.bind({});
@@ -79,8 +79,14 @@ Warning.args = {
   theme: 'warning'
 };
 
+export const Danger = Template.bind({});
+Danger.args = {
+  alertText: 'Danger',
+  theme: 'danger'
+};
+
 export const Timer = Template.bind({});
 Timer.args = {
   alertText: 'Timer',
-  autoClose: 1000
+  autoClose: '1000'
 };

@@ -1,23 +1,46 @@
 /**
 theme color
-- bg : background
-- bd : border
-- ft : font
 */
-$bg-color-primary: blue;
-$bg-color-secondary: green;
-$bg-color-warning: yellow;
-$bg-color-light: white;
+$primary: blue;
+$secondary: #06d6a0;
+$warning: #ffd166;
+$light: white;
+$danger: #ef476f;
+$default: #073b4c;
+$info: #118ab2;
 
-$bd-color-primary: blue;
-$bd-color-secondary: green;
-$bd-color-warning: yellow;
-$bd-color-light: white;
+/**
+background
+*/
+$bg-color-primary: $primary;
+$bg-color-secondary: $secondary;
+$bg-color-warning: $warning;
+$bg-color-light: $light;
+$bg-color-danger: $danger;
+$bg-color-default: $default;
+$bg-color-info: $info;
 
+/**
+border
+*/
+$bd-color-primary: $primary;
+$bd-color-secondary: $secondary;
+$bd-color-warning: $warning;
+$bd-color-light: $light;
+$bd-color-danger: $danger;
+$bd-color-default: $default;
+$bd-color-info: $info;
+
+/**
+font
+*/
 $ft-color-primary: white;
 $ft-color-secondary: white;
 $ft-color-warning: black;
 $ft-color-light: black;
+$ft-color-danger: white;
+$ft-color-default: white;
+$ft-color-info: white;
 
 /**
 font size
@@ -29,6 +52,11 @@ $fs-small: 11px;
 /**
 width
 */
-$lg: calc(100vw / 12 * 9);
-$md: calc(100vw / 12 * 6);
-$sm: calc(100vw / 12 * 3);
+@function calc-width($container) {
+  @return 100vw / 12 * $container;
+}
+$lg: calc-width(9);
+$md: calc-width(6);
+$sm: calc-width(3);
+$x-sm: calc-width(2);
+$xx-sm: calc-width(1);

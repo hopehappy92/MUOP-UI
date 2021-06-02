@@ -1,28 +1,50 @@
 @import '../../index.scss';
 
-$height: 70px;
+@mixin flex-setting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-default {
+  border: none;
+  background-color: rgba($color: #000000, $alpha: 0);
+  cursor: pointer;
+}
+
+@mixin muop-theme($bg, $ft) {
+  background-color: $bg;
+  color: $ft;
+  header,
+  footer {
+    button {
+      color: $ft !important;
+    }
+  }
+
+  footer > button {
+    border: 1px solid $ft !important;
+  }
+}
 
 .muop-alert {
+  @include flex-setting;
+
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba($color: #000000, $alpha: 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .muop-alert-inner {
+  @include flex-setting;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px;
   position: absolute;
-  animation: showModal 0.4s ease-in-out;
+  animation: showAlert 0.4s ease-in-out;
 
   header {
     width: 100%;
@@ -30,88 +52,70 @@ $height: 70px;
     justify-content: flex-end;
 
     > button {
-      border: none;
-      background-color: rgba($color: #000000, $alpha: 0);
-      cursor: pointer;
+      @include button-default;
+      font-size: $fs-large;
+      margin: 0;
+      padding: 0 5px;
+      height: 13px;
+      line-height: 13px;
     }
   }
 
-  section {
-    padding: 0;
+  article {
+    margin: 5px;
+
+    > p {
+      font-weight: bold;
+      margin: 0;
+      max-width: 100%;
+      word-break: break-all;
+      text-align: center;
+    }
   }
 
   footer {
     > button {
-      border: none;
-      background-color: rgba($color: #000000, $alpha: 0);
-      cursor: pointer;
+      @include button-default;
+      padding: 3px 10px;
+      border-radius: 5px;
     }
   }
 }
 
-@keyframes showModal {
+@keyframes showAlert {
   0% {
-    top: 0;
+    margin-bottom: 40%;
+    opacity: 0.1;
   }
   100% {
-    top: calc(50% - #{$height/2});
+    margin-bottom: 0;
+    opacity: 1;
   }
 }
 
-.muop-alert-lg {
-  width: $lg;
-}
-
-.muop-alert-md {
-  width: $md;
-}
-
-.muop-alert-sm {
-  width: $sm;
-}
-
-.muop-alert-none {
-  background-color: $bg-color-light;
-  color: $ft-color-light;
-  header,
-  footer {
-    button {
-      color: $ft-color-light !important;
-    }
+.muop-alert {
+  &-lg {
+    width: $sm;
   }
-}
-
-.muop-alert-primary {
-  background-color: $bg-color-primary;
-  color: $ft-color-primary;
-
-  header,
-  footer {
-    button {
-      color: $ft-color-primary !important;
-    }
+  &-md {
+    width: $x-sm;
   }
-}
-
-.muop-alert-secondary {
-  background-color: $bg-color-secondary;
-  color: $ft-color-secondary;
-
-  header,
-  footer {
-    button {
-      color: $ft-color-secondary !important;
-    }
+  &-sm {
+    width: $xx-sm;
   }
-}
-
-.muop-alert-warning {
-  background-color: $bg-color-warning;
-  color: $ft-color-warning;
-  header,
-  footer {
-    button {
-      color: $ft-color-warning !important;
-    }
+  &-default {
+    @include muop-theme($bg-color-default, $ft-color-default);
+  }
+  &-info {
+    @include muop-theme($bg-color-info, $ft-color-info);
+  }
+  &-secondary {
+    @include muop-theme($bg-color-secondary, $ft-color-secondary);
+  }
+  &-warning {
+    @include muop-theme($bg-color-warning, $ft-color-warning);
+  }
+  &-danger {
+    @include muop-theme($bg-color-danger, $ft-color-danger);
   }
 }
