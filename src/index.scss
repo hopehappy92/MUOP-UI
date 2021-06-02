@@ -1,20 +1,46 @@
 /**
 theme color
-- bg : background
-- bd : border
-- f : font
 */
-$bg-color-danger: #ef476f;
-$bg-color-warning: #ffd166;
-$bg-color-success: #06d6a0;
-$bg-color-info: #118ab2;
-$bg-color-default: #073b4c;
+$primary: blue;
+$secondary: #06d6a0;
+$warning: #ffd166;
+$light: white;
+$danger: #ef476f;
+$default: #073b4c;
+$info: #118ab2;
 
-$bd-color-danger: #ef476f;
-$bd-color-warning: #ffd166;
-$bd-color-success: #06d6a0;
-$bd-color-info: #118ab2;
-$bd-color-default: #073b4c;
+/**
+background
+*/
+$bg-color-primary: $primary;
+$bg-color-secondary: $secondary;
+$bg-color-warning: $warning;
+$bg-color-light: $light;
+$bg-color-danger: $danger;
+$bg-color-default: $default;
+$bg-color-info: $info;
+
+/**
+border
+*/
+$bd-color-primary: $primary;
+$bd-color-secondary: $secondary;
+$bd-color-warning: $warning;
+$bd-color-light: $light;
+$bd-color-danger: $danger;
+$bd-color-default: $default;
+$bd-color-info: $info;
+
+/**
+font
+*/
+$ft-color-primary: white;
+$ft-color-secondary: white;
+$ft-color-warning: black;
+$ft-color-light: black;
+$ft-color-danger: white;
+$ft-color-default: white;
+$ft-color-info: white;
 
 $f-color-light: #ffffff;
 $f-color-dark: #000000;
@@ -25,3 +51,15 @@ font size
 $fs-large: 16px;
 $fs-normal: 13px;
 $fs-small: 11px;
+
+/**
+width
+*/
+@function calc-width($container) {
+  @return 100vw / 12 * $container;
+}
+$lg: calc-width(9);
+$md: calc-width(6);
+$sm: calc-width(3);
+$x-sm: calc-width(2);
+$xx-sm: calc-width(1);

@@ -1,0 +1,121 @@
+@import '../../index.scss';
+
+@mixin flex-setting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-default {
+  border: none;
+  background-color: rgba($color: #000000, $alpha: 0);
+  cursor: pointer;
+}
+
+@mixin muop-theme($bg, $ft) {
+  background-color: $bg;
+  color: $ft;
+  header,
+  footer {
+    button {
+      color: $ft !important;
+    }
+  }
+
+  footer > button {
+    border: 1px solid $ft !important;
+  }
+}
+
+.muop-alert {
+  @include flex-setting;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+}
+
+.muop-alert-inner {
+  @include flex-setting;
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 5px;
+  position: absolute;
+  animation: showAlert 0.4s ease-in-out;
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    > button {
+      @include button-default;
+      font-size: $fs-large;
+      margin: 0;
+      padding: 0 5px;
+      height: 13px;
+      line-height: 13px;
+    }
+  }
+
+  article {
+    margin: 5px;
+
+    > p {
+      font-weight: bold;
+      margin: 0;
+      max-width: 100%;
+      word-break: break-all;
+      text-align: center;
+    }
+  }
+
+  footer {
+    > button {
+      @include button-default;
+      padding: 3px 10px;
+      border-radius: 5px;
+    }
+  }
+}
+
+@keyframes showAlert {
+  0% {
+    margin-bottom: 40%;
+    opacity: 0.1;
+  }
+  100% {
+    margin-bottom: 0;
+    opacity: 1;
+  }
+}
+
+.muop-alert {
+  &-lg {
+    width: $sm;
+  }
+  &-md {
+    width: $x-sm;
+  }
+  &-sm {
+    width: $xx-sm;
+  }
+  &-default {
+    @include muop-theme($bg-color-default, $ft-color-default);
+  }
+  &-info {
+    @include muop-theme($bg-color-info, $ft-color-info);
+  }
+  &-secondary {
+    @include muop-theme($bg-color-secondary, $ft-color-secondary);
+  }
+  &-warning {
+    @include muop-theme($bg-color-warning, $ft-color-warning);
+  }
+  &-danger {
+    @include muop-theme($bg-color-danger, $ft-color-danger);
+  }
+}
