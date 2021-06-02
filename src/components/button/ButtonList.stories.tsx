@@ -16,41 +16,21 @@ const Template: Story<ButtonListProps> = (args: ButtonListProps) => {
 export const Default = Template.bind({});
 Default.args = {
   buttons: [
-    { theme: 'primary', children: 'primary' },
-    { theme: 'secondary', children: 'secondary' },
-    { theme: 'warning', children: 'warning' }
+    { theme: 'default', children: 'Default' },
+    { theme: 'info', children: 'Info' },
+    { theme: 'success', children: 'Success' },
+    { theme: 'warning', children: 'Warning' },
+    { theme: 'danger', children: 'Danger' }
   ]
 };
 
 export const Outline = Template.bind({});
 Outline.args = {
   buttons: [
-    { theme: 'primary', children: 'primary', outline: true },
-    { theme: 'secondary', children: 'secondary', outline: true },
-    { theme: 'warning', children: 'warning', outline: true }
-  ]
-};
-
-export const Loading = Template.bind({});
-Loading.args = {
-  buttons: [
-    {
-      theme: 'primary',
-      children: 'primary',
-      loading: true,
-      loadingChildren: <span>Loading..</span>
-    },
-    {
-      theme: 'secondary',
-      children: 'secondary',
-      loading: true,
-      loadingChildren: <span>Loading..</span>
-    },
-    {
-      theme: 'warning',
-      children: 'warning',
-      loading: true,
-      loadingChildren: <span>Loading..</span>
-    }
+    { theme: 'default', children: 'Default', outline: true },
+    { theme: 'info', children: 'Info', outline: true },
+    { theme: 'success', children: 'Success', outline: true },
+    { theme: 'warning', children: 'Warning', outline: true },
+    { theme: 'danger', children: 'Danger', outline: true }
   ]
 };

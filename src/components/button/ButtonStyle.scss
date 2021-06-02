@@ -1,10 +1,12 @@
 @import '../../index.scss';
 
 .muop-button {
-  border-radius: 8%;
+  cursor: pointer;
+  line-height: 100%;
+  border-radius: 0.25rem;
 
+  // basic element event
   &:hover {
-    cursor: pointer;
     opacity: 0.8;
   }
 
@@ -13,34 +15,42 @@
     opacity: 0.4;
   }
 
-  &.muop-button-primary {
-    background-color: $bg-color-primary;
-    border: 1px solid $bd-color-primary;
-    color: white;
-  }
-
-  &.muop-button-secondary {
-    background-color: $bg-color-secondary;
-    border: 1px solid $bd-color-secondary;
-    color: white;
+  // theme
+  &.muop-button-danger {
+    background-color: $bg-color-danger;
+    border: 1px solid $bd-color-danger;
+    color: $f-color-light;
   }
 
   &.muop-button-warning {
     background-color: $bg-color-warning;
     border: 1px solid $bd-color-warning;
-    color: black;
+    color: $f-color-dark;
   }
 
-  &.muop-button-primary-outline {
-    background-color: white;
-    border: 1px solid $bd-color-primary;
-    color: $bg-color-primary;
+  &.muop-button-success {
+    background-color: $bg-color-success;
+    border: 1px solid $bd-color-success;
+    color: $f-color-light;
   }
 
-  &.muop-button-secondary-outline {
+  &.muop-button-info {
+    background-color: $bg-color-info;
+    border: 1px solid $bd-color-info;
+    color: $f-color-light;
+  }
+
+  &.muop-button-default {
+    background-color: $bg-color-default;
+    border: 1px solid $bd-color-default;
+    color: $f-color-light;
+  }
+
+  // theme + outline
+  &.muop-button-danger-outline {
     background-color: white;
-    border: 1px solid $bd-color-secondary;
-    color: $bg-color-secondary;
+    border: 1px solid $bd-color-danger;
+    color: $bg-color-danger;
   }
 
   &.muop-button-warning-outline {
@@ -49,21 +59,40 @@
     color: $bg-color-warning;
   }
 
+  &.muop-button-success-outline {
+    background-color: white;
+    border: 1px solid $bd-color-success;
+    color: $bg-color-success;
+  }
+
+  &.muop-button-info-outline {
+    background-color: white;
+    border: 1px solid $bd-color-info;
+    color: $bg-color-info;
+  }
+
+  &.muop-button-default-outline {
+    background-color: white;
+    border: 1px solid $bd-color-default;
+    color: $bg-color-default;
+  }
+
+  // size
   &.muop-button-lg {
-    width: 80px;
-    height: 40px;
     font-size: $fs-large;
+    padding: 8px 20px;
+    min-width: 100px;
   }
 
   &.muop-button-md {
-    width: 60px;
-    height: 30px;
     font-size: $fs-normal;
+    padding: 8px 16px;
+    min-width: 75px;
   }
 
   &.muop-button-sm {
-    width: 45px;
-    height: 25px;
     font-size: $fs-small;
+    padding: 4px 8px;
+    min-width: 50px;
   }
 }

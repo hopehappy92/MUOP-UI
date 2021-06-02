@@ -2,44 +2,45 @@ import React from 'react';
 
 import './ButtonStyle.scss';
 
-export type TTheme = 'primary' | 'secondary' | 'warning';
+export type TTheme = 'danger' | 'warning' | 'success' | 'info' | 'default';
 
 export type TSize = 'lg' | 'md' | 'sm';
 
-// TODO: desc 안나옴 ㅠㅠ
 export interface ButtonProps {
   /** theme */
   theme?: TTheme;
   /** size */
   size?: TSize;
-  /** children */
-  children?: React.ReactNode;
   /** disabled */
   disabled?: boolean;
   /** outline by theme */
   outline?: boolean;
-  /** if you want to loading state, set true */
-  loading?: boolean;
-  /** children when loading is true */
-  loadingChildren?: React.ReactNode;
+  /** name */
+  name?: string;
+  /** children */
+  children: React.ReactNode;
+  /** click event */
+  onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
-  theme = 'primary',
+  theme = 'default',
   size = 'md',
-  outline = false,
+  name = 'btn-default',
   ...props
 }: ButtonProps) => (
   <button
     type="button"
     className={[
       'muop-button',
-      `muop-button-${theme}${outline ? '-outline' : ''}`,
+      `muop-button-${theme}${props.outline ? '-outline' : ''}`,
       `muop-button-${size}`
     ].join(' ')}
     disabled={props.disabled}
+    name={name}
+    onClick={props.onClick}
   >
-    {props.loading ? props.loadingChildren : props.children}
+    {props.children}
   </button>
 );
 

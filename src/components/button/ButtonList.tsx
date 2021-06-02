@@ -17,8 +17,6 @@ const ButtonList: React.FC<ButtonListProps> = (props: ButtonListProps) => {
           size={button.size}
           disabled={button.disabled}
           outline={button.outline}
-          loading={button.loading}
-          loadingChildren={button.loadingChildren}
         >
           {button.children}
         </Button>

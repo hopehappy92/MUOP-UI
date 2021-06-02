@@ -2,14 +2,22 @@
 theme color
 - bg : background
 - bd : border
+- f : font
 */
-$bg-color-primary: blue;
-$bg-color-secondary: green;
-$bg-color-warning: yellow;
+$bg-color-danger: #ef476f;
+$bg-color-warning: #ffd166;
+$bg-color-success: #06d6a0;
+$bg-color-info: #118ab2;
+$bg-color-default: #073b4c;
 
-$bd-color-primary: blue;
-$bd-color-secondary: green;
-$bd-color-warning: gray;
+$bd-color-danger: #ef476f;
+$bd-color-warning: #ffd166;
+$bd-color-success: #06d6a0;
+$bd-color-info: #118ab2;
+$bd-color-default: #073b4c;
+
+$f-color-light: #ffffff;
+$f-color-dark: #000000;
 
 /**
 font size
