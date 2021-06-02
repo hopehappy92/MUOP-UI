@@ -18,12 +18,12 @@
   header,
   footer {
     button {
-      color: $ft !important;
+      color: $ft;
     }
   }
 
   footer > button {
-    border: 1px solid $ft !important;
+    border: 1px solid $ft;
   }
 }
 
@@ -109,8 +109,8 @@
   &-info {
     @include muop-theme($bg-color-info, $ft-color-info);
   }
-  &-secondary {
-    @include muop-theme($bg-color-secondary, $ft-color-secondary);
+  &-success {
+    @include muop-theme($bg-color-success, $ft-color-success);
   }
   &-warning {
     @include muop-theme($bg-color-warning, $ft-color-warning);

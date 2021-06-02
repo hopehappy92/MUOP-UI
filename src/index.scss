@@ -2,7 +2,7 @@
 theme color
 */
 $primary: blue;
-$secondary: #06d6a0;
+$success: #06d6a0;
 $warning: #ffd166;
 $light: white;
 $danger: #ef476f;
@@ -13,7 +13,7 @@ $info: #118ab2;
 background
 */
 $bg-color-primary: $primary;
-$bg-color-secondary: $secondary;
+$bg-color-success: $success;
 $bg-color-warning: $warning;
 $bg-color-light: $light;
 $bg-color-danger: $danger;
@@ -24,7 +24,7 @@ $bg-color-info: $info;
 border
 */
 $bd-color-primary: $primary;
-$bd-color-secondary: $secondary;
+$bd-color-success: $success;
 $bd-color-warning: $warning;
 $bd-color-light: $light;
 $bd-color-danger: $danger;
@@ -35,7 +35,7 @@ $bd-color-info: $info;
 font
 */
 $ft-color-primary: white;
-$ft-color-secondary: white;
+$ft-color-success: white;
 $ft-color-warning: black;
 $ft-color-light: black;
 $ft-color-danger: white;
@@ -55,8 +55,8 @@ $fs-small: 11px;
 /**
 width
 */
-@function calc-width($container) {
-  @return 100vw / 12 * $container;
+@function calc-width($grid) {
+  @return 100vw / 12 * $grid;
 }
 $lg: calc-width(9);
 $md: calc-width(6);

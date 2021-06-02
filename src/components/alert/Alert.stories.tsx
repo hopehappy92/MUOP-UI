@@ -18,7 +18,7 @@ export default {
 
 const Template: Story<AlertProps> = (args: AlertProps) => {
   const { alertText, theme, size, backdrop, footer, autoClose } = args;
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(true);
 
   const handleAlertOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -67,10 +67,10 @@ Info.args = {
   theme: 'info'
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  alertText: 'Secondary',
-  theme: 'secondary'
+export const Success = Template.bind({});
+Success.args = {
+  alertText: 'Success',
+  theme: 'success'
 };
 
 export const Warning = Template.bind({});

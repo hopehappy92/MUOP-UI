@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react';
 
 import './AlertStyle.scss';
 
-type TTheme = 'default' | 'info' | 'secondary' | 'warning' | 'danger';
+type TTheme = 'default' | 'info' | 'success' | 'warning' | 'danger';
 type TSize = 'lg' | 'md' | 'sm';
 type TTime = '500' | '1000' | '1500' | '2000' | '3000';
 
 export interface AlertProps {
   /**
    * if true, active alert
-   * @default false
+   * @default true
    */
   open: boolean;
   /**
@@ -45,7 +45,7 @@ export interface AlertProps {
 }
 
 const Alert: React.FC<AlertProps> = ({
-  open = false,
+  open = true,
   alertText,
   theme = 'default',
   size = 'md',
