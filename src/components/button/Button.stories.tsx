@@ -16,15 +16,43 @@ export default {
 } as Meta;
 
 const Template: Story<ButtonProps> = (args: ButtonProps) => {
-  const { theme, size, disabled, outline, name, children, onClick } = args;
+  const {
+    children,
+    theme,
+    size,
+    outline,
+    disabled,
+    name,
+    id,
+    className,
+    onClick,
+    onMouseOver,
+    onMouseOut,
+    onMouseEnter,
+    onMouseLeave,
+    onKeyUp,
+    onKeyDown,
+    onFocus,
+    onBlur
+  } = args;
   return (
     <Button
       theme={theme}
       size={size}
-      disabled={disabled}
       outline={outline}
+      disabled={disabled}
       name={name}
+      id={id}
+      className={className}
       onClick={onClick}
+      onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onKeyUp={onKeyUp}
+      onKeyDown={onKeyDown}
+      onFocus={onFocus}
+      onBlur={onBlur}
     >
       {children}
     </Button>

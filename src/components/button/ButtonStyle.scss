@@ -1,5 +1,17 @@
 @import '../../index.scss';
 
+@mixin muop-theme($bg, $bd, $ft) {
+  background-color: $bg;
+  border: 1px solid $bd;
+  color: $ft;
+}
+
+@mixin muop-size($size, $p-ud, $p-lr, $mw) {
+  font-size: $size;
+  padding: $p-ud $p-lr;
+  min-width: $mw;
+}
+
 .muop-button {
   cursor: pointer;
   line-height: 100%;
@@ -16,83 +28,69 @@
   }
 
   // theme
-  &.muop-button-danger {
-    background-color: $bg-color-danger;
-    border: 1px solid $bd-color-danger;
-    color: $f-color-light;
+  &-danger {
+    @include muop-theme($bg-color-danger, $bd-color-danger, $ft-color-danger);
   }
 
-  &.muop-button-warning {
-    background-color: $bg-color-warning;
-    border: 1px solid $bd-color-warning;
-    color: $f-color-dark;
+  &-warning {
+    @include muop-theme(
+      $bg-color-warning,
+      $bd-color-warning,
+      $ft-color-warning
+    );
   }
 
-  &.muop-button-success {
-    background-color: $bg-color-success;
-    border: 1px solid $bd-color-success;
-    color: $f-color-light;
+  &-success {
+    @include muop-theme(
+      $bg-color-success,
+      $bd-color-success,
+      $ft-color-success
+    );
   }
 
-  &.muop-button-info {
-    background-color: $bg-color-info;
-    border: 1px solid $bd-color-info;
-    color: $f-color-light;
+  &-info {
+    @include muop-theme($bg-color-info, $bd-color-info, $ft-color-info);
   }
 
-  &.muop-button-default {
-    background-color: $bg-color-default;
-    border: 1px solid $bd-color-default;
-    color: $f-color-light;
+  &-default {
+    @include muop-theme(
+      $bg-color-default,
+      $bd-color-default,
+      $ft-color-default
+    );
   }
 
   // theme + outline
-  &.muop-button-danger-outline {
-    background-color: white;
-    border: 1px solid $bd-color-danger;
-    color: $bg-color-danger;
+  &-danger-outline {
+    @include muop-theme(white, $bd-color-danger, $bg-color-danger);
   }
 
-  &.muop-button-warning-outline {
-    background-color: white;
-    border: 1px solid $bd-color-warning;
-    color: $bg-color-warning;
+  &-warning-outline {
+    @include muop-theme(white, $bd-color-warning, $bg-color-warning);
   }
 
-  &.muop-button-success-outline {
-    background-color: white;
-    border: 1px solid $bd-color-success;
-    color: $bg-color-success;
+  &-success-outline {
+    @include muop-theme(white, $bd-color-success, $bg-color-success);
   }
 
-  &.muop-button-info-outline {
-    background-color: white;
-    border: 1px solid $bd-color-info;
-    color: $bg-color-info;
+  &-info-outline {
+    @include muop-theme(white, $bd-color-info, $bg-color-info);
   }
 
-  &.muop-button-default-outline {
-    background-color: white;
-    border: 1px solid $bd-color-default;
-    color: $bg-color-default;
+  &-default-outline {
+    @include muop-theme(white, $bd-color-default, $bg-color-default);
   }
 
   // size
-  &.muop-button-lg {
-    font-size: $fs-large;
-    padding: 8px 20px;
-    min-width: 100px;
+  &-lg {
+    @include muop-size($fs-large, 8px, 20px, 100px);
   }
 
-  &.muop-button-md {
-    font-size: $fs-normal;
-    padding: 8px 16px;
-    min-width: 75px;
+  &-md {
+    @include muop-size($fs-normal, 8px, 16px, 75px);
   }
 
-  &.muop-button-sm {
-    font-size: $fs-small;
-    padding: 4px 8px;
-    min-width: 50px;
+  &-sm {
+    @include muop-size($fs-small, 4px, 8px, 50px);
   }
 }
