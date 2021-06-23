@@ -6,7 +6,7 @@ type TTheme = 'default' | 'info' | 'secondary' | 'warning' | 'danger';
 type TSize = 'lg' | 'md' | 'sm';
 type TTime = '500' | '1000' | '1500' | '2000' | '3000';
 
-export interface AlertProps {
+export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * if true, active alert
    * @default false
@@ -52,7 +52,8 @@ const Alert: React.FC<AlertProps> = ({
   backdrop = true,
   footer = true,
   autoClose,
-  handleAlertClose
+  handleAlertClose,
+  ...props
 }: AlertProps) => {
   const alertRef = useRef<HTMLDivElement>(null);
 
@@ -103,6 +104,7 @@ const Alert: React.FC<AlertProps> = ({
       className="muop-alert"
       onClick={onClickOutSide}
       onKeyUp={onKeyUpEsc}
+      {...props}
     >
       <main
         role="presentation"
