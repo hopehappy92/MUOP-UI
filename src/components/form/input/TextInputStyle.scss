@@ -1,0 +1,112 @@
+@import '../../../index.scss';
+
+@mixin muop-text-input-theme($bd, $ft) {
+  box-sizing: border-box;
+  border-color: $bd;
+  color: $ft;
+
+  > input {
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.muop-text-input-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  &-standard {
+    border: none;
+    border-bottom: 1px solid;
+  }
+
+  &-filled-default,
+  &-filled-info,
+  &-filled-secondary,
+  &-filled-warning,
+  &-filled-danger,
+  &-outlined {
+    border-radius: 5px;
+    border: 1px solid;
+    > input {
+      border-radius: 5px;
+    }
+  }
+
+  &-filled-default,
+  &-filled-default > input {
+    background-color: $default-90;
+  }
+  &-filled-info,
+  &-filled-info > input {
+    background-color: $info-90;
+  }
+  &-filled-secondary,
+  &-filled-secondary > input {
+    background-color: $secondary-90;
+  }
+  &-filled-warning,
+  &-filled-warning > input {
+    background-color: $warning-90;
+  }
+  &-filled-danger,
+  &-filled-danger > input {
+    background-color: $danger-90;
+  }
+
+  &-default {
+    @include muop-text-input-theme($bd-color-default, $ft-color-black);
+  }
+  &-info {
+    @include muop-text-input-theme($bd-color-info, $ft-color-black);
+  }
+  &-secondary {
+    @include muop-text-input-theme($bd-color-secondary, $ft-color-black);
+  }
+  &-warning {
+    @include muop-text-input-theme($bd-color-warning, $ft-color-black);
+  }
+  &-danger {
+    @include muop-text-input-theme($bd-color-danger, $ft-color-black);
+  }
+
+  &-disabled-true {
+    background-color: grayscale($color: hsla(0, 0%, 0%, 0.123));
+  }
+
+  .muop-text-label {
+    &-lg {
+      font-size: $fs-xxlarge;
+    }
+    &-md {
+      font-size: $fs-xlarge;
+    }
+    &-sm {
+      font-size: $fs-large;
+    }
+  }
+
+  .muop-text-input {
+    flex: 1 1 0;
+    padding: 0 10px;
+    width: 100%;
+
+    &-lg {
+      font-size: $fs-xxlarge;
+    }
+    &-md {
+      font-size: $fs-xlarge;
+    }
+    &-sm {
+      font-size: $fs-large;
+    }
+
+    &:disabled {
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+}

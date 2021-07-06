@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FormInput from './FormInput';
-import FormTextarea from './FormTextarea';
+import TextInput from './input/TextInput';
+import FormTextarea from './textarea/FormTextarea';
 
 import './FormStyle.scss';
 
@@ -14,6 +14,6 @@ const Form: React.FC<FormProps> = ({ ...props }: FormProps) => (
 );
 
 export default Object.assign(Form, {
-  Input: FormInput,
+  Input: TextInput,
   Textarea: FormTextarea
 });

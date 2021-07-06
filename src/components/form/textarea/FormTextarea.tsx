@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './FormStyle.scss';
+import './FormTextareaStyle.scss';
 
 export interface FormTextareaProps
   extends React.HTMLAttributes<HTMLTextAreaElement> {

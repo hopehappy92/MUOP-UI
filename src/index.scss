@@ -2,12 +2,72 @@
 theme color
 */
 $primary: blue;
-$secondary: #06d6a0;
-$warning: #ffd166;
-$light: white;
-$danger: #ef476f;
-$default: #073b4c;
-$info: #118ab2;
+$secondary: hsl(164, 95%, 43%);
+$warning: hsl(42, 100%, 70%);
+$light: #ffffff;
+$danger: hsl(346, 84%, 61%);
+$default: hsl(195, 83%, 16%);
+$info: hsl(195, 83%, 38%);
+
+/**
+secondary
+*/
+$secondary-10: darken($secondary, 30%);
+$secondary-20: darken($secondary, 20%);
+$secondary-30: darken($secondary, 10%);
+$secondary-50: lighten($secondary, 10%);
+$secondary-60: lighten($secondary, 20%);
+$secondary-70: lighten($secondary, 30%);
+$secondary-80: lighten($secondary, 40%);
+$secondary-90: lighten($secondary, 50%);
+
+/**
+warning
+*/
+$warning-10: darken($warning, 60%);
+$warning-20: darken($warning, 50%);
+$warning-30: darken($warning, 40%);
+$warning-40: darken($warning, 30%);
+$warning-50: darken($warning, 20%);
+$warning-60: darken($warning, 10%);
+$warning-80: lighten($warning, 10%);
+$warning-90: lighten($warning, 20%);
+
+/**
+danger
+*/
+$danger-10: darken($danger, 50%);
+$danger-20: darken($danger, 40%);
+$danger-30: darken($danger, 30%);
+$danger-40: darken($danger, 20%);
+$danger-50: darken($danger, 10%);
+$danger-70: lighten($danger, 10%);
+$danger-80: lighten($danger, 20%);
+$danger-90: lighten($danger, 30%);
+
+/**
+default
+*/
+$default-10: darken($default, 10%);
+$default-30: lighten($default, 10%);
+$default-40: lighten($default, 20%);
+$default-50: lighten($default, 30%);
+$default-60: lighten($default, 40%);
+$default-70: lighten($default, 50%);
+$default-80: lighten($default, 60%);
+$default-90: lighten($default, 70%);
+
+/**
+info
+*/
+$info-10: darken($info, 30%);
+$info-20: darken($info, 20%);
+$info-30: darken($info, 10%);
+$info-50: lighten($info, 10%);
+$info-60: lighten($info, 20%);
+$info-70: lighten($info, 30%);
+$info-80: lighten($info, 40%);
+$info-90: lighten($info, 50%);
 
 /**
 background
@@ -41,10 +101,14 @@ $ft-color-light: black;
 $ft-color-danger: white;
 $ft-color-default: white;
 $ft-color-info: white;
+$ft-color-black: black;
 
 /**
 font size
 */
+$fs-xxxlarge: 28px;
+$fs-xxlarge: 24px;
+$fs-xlarge: 20px;
 $fs-large: 16px;
 $fs-normal: 13px;
 $fs-small: 11px;
