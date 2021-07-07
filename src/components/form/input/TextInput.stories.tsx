@@ -8,36 +8,46 @@ export default {
   title: 'Components/Form/TextInput',
   component: TextInput,
   args: {
+    type: 'text',
     variant: 'standard',
     theme: 'default',
-    size: 'md',
+    fontSize: 'md',
     labelPosition: 'left',
-    disabled: false
+    disabled: false,
+    valid: true,
+    validText: '유효하지 않은 정보입니다. 다시 확인해주세요'
   },
   argTypes: {
     label: { control: 'text' },
-    disabled: { control: 'boolean' }
+    disabled: { control: 'boolean' },
+    valid: { control: 'boolean' }
   }
 } as Meta;
 
 const Template: Story<TextInputProps> = (args: TextInputProps) => {
   const {
     placeholder,
+    type,
     theme,
-    size,
+    fontSize,
     disabled,
     variant,
+    valid,
+    validText,
     label,
     labelPosition,
     handleSubmit
   } = args;
   return (
     <TextInput
+      type={type}
       theme={theme}
       placeholder={placeholder}
-      size={size}
+      fontSize={fontSize}
       disabled={disabled}
       variant={variant}
+      valid={valid}
+      validText={validText}
       label={label}
       labelPosition={labelPosition}
       handleSubmit={handleSubmit}
@@ -48,16 +58,15 @@ const Template: Story<TextInputProps> = (args: TextInputProps) => {
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'default',
-  label: 'HI',
   handleSubmit: () => {
     console.log('Submit!');
   }
 };
 
-export const Size = Template.bind({});
-Size.args = {
-  placeholder: 'Size',
-  size: 'lg'
+export const Label = Template.bind({});
+Label.args = {
+  placeholder: 'label',
+  label: 'Label'
 };
 
 export const Disabled = Template.bind({});
@@ -66,31 +75,50 @@ Disabled.args = {
   disabled: true
 };
 
-interface ICustomButton {
-  buttonText: string;
-}
-const CustomButton: React.FC<ICustomButton> = (props: ICustomButton) => {
-  const { buttonText } = props;
-
-  const onClickBtn = () => {
-    console.log('Click Btn');
-  };
-
-  return (
-    <button type="button" onClick={onClickBtn}>
-      {buttonText}
-    </button>
-  );
+export const Validation = Template.bind({});
+Validation.args = {
+  placeholder: 'InValid',
+  valid: false
 };
 
-export const WithCustomButton = Template.bind({});
-WithCustomButton.args = {
-  placeholder: 'Button',
-  label: <CustomButton buttonText="Click" />
-};
-
-export const WithZenaButton = Template.bind({});
-WithZenaButton.args = {
+export const WithButton = Template.bind({});
+WithButton.args = {
   placeholder: 'Button',
   label: <MyButton outline>Click</MyButton>
 };
+
+export const Password = Template.bind({});
+Password.args = {
+  placeholder: 'Input password',
+  label: 'Password',
+  type: 'password'
+};
+
+// export const Size = Template.bind({});
+// Size.args = {
+//   placeholder: 'Size',
+//   size: 'lg'
+// };
+
+// interface ICustomButton {
+//   buttonText: string;
+// }
+// const CustomButton: React.FC<ICustomButton> = (props: ICustomButton) => {
+//   const { buttonText } = props;
+
+//   const onClickBtn = () => {
+//     console.log('Click Btn');
+//   };
+
+//   return (
+//     <button type="button" onClick={onClickBtn}>
+//       {buttonText}
+//     </button>
+//   );
+// };
+
+// export const WithCustomButton = Template.bind({});
+// WithCustomButton.args = {
+//   placeholder: 'Button',
+//   label: <CustomButton buttonText="Click" />
+// };

@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import Form, { FormProps } from './Form';
-// import { FormInputProps } from './FormInput';
-// import { FormTextareaProps } from './FormTextarea';
+import MyButton from '../button/Button';
 
 export default {
   title: 'Components/Form',
@@ -28,3 +27,44 @@ const Template: Story<FormProps> = (args: FormProps) => {
 };
 
 export const Default = Template.bind({});
+
+export const Login: Story<FormProps> = () => {
+  const idRef = useRef<HTMLInputElement>(null);
+  const pwdRef = useRef<HTMLInputElement>(null);
+
+  const onSubmitBtn = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('나와라!', idRef.current?.value, pwdRef.current?.value);
+  };
+
+  return (
+    <Form onSubmit={onSubmitBtn}>
+      <div
+        style={{
+          width: '400px',
+          height: '150px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Form.Input
+          ref={idRef}
+          theme="secondary"
+          variant="outlined"
+          label="ID"
+        />
+        <Form.Input
+          ref={pwdRef}
+          theme="secondary"
+          variant="outlined"
+          label="Password"
+          type="password"
+        />
+        <MyButton theme="secondary" outline type="submit">
+          Submit
+        </MyButton>
+      </div>
+    </Form>
+  );
+};

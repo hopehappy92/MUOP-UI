@@ -78,6 +78,10 @@
     background-color: grayscale($color: hsla(0, 0%, 0%, 0.123));
   }
 
+  &-valid-false {
+    border-color: $bd-color-danger !important;
+  }
+
   .muop-text-label {
     &-lg {
       font-size: $fs-xxlarge;
@@ -108,5 +112,31 @@
     &:disabled {
       background-color: rgba(0, 0, 0, 0);
     }
+  }
+
+  .muop-text-input-invalid-clear-btn {
+    background-color: rgba(0, 0, 0, 0);
+    border: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    font-weight: bolder;
+  }
+
+  .muop-text-input-view-pwd-btn {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid $bd-color-default;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bolder;
+  }
+}
+
+.muop-text-input-invalid-text {
+  padding-left: 5px;
+
+  > p {
+    padding-left: 10px;
+    color: $danger;
+    font-size: $fs-normal;
+    margin: 0;
   }
 }

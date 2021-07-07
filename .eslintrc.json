@@ -45,6 +45,7 @@
       {
         "html": "ignore"
       }
-    ]
+    ],
+    "react/button-has-type": "off"
   }
 }
