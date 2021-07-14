@@ -2,7 +2,7 @@
 name: What to do
 about: Describe your work and Write down what you to do
 title: ''
-labels: ''
+labels: enhancement
 assignees: ''
 
 ---
