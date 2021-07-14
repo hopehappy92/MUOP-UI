@@ -1,0 +1,96 @@
+@import '../../../../index.scss';
+
+@mixin muop-check-radio-input-theme($bd, $bg) {
+  border-color: $bd;
+  background-color: $bg;
+}
+
+.muop-check-radio-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+
+  &-left {
+    flex-direction: row-reverse;
+  }
+  &-right {
+    flex-direction: row;
+  }
+  &-top {
+    flex-direction: column-reverse;
+  }
+  &-bottom {
+    flex-direction: column;
+  }
+
+  .muop-check-radio-label {
+    cursor: pointer;
+
+    &-disabled {
+      color: hsl(0, 0%, 70%);
+    }
+  }
+
+  .muop-check-radio-input {
+    border-radius: 5px;
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    vertical-align: top;
+    background-color: white;
+    border: 1px solid hsl(0, 0%, 30%);
+
+    // background-repeat: no-repeat;
+    // background-position: 50%;
+    // background-size: contain;
+    // -webkit-print-color-adjust: exact; <<<<< 이거 뭐지... // https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-print-color-adjust // 비표준...
+
+    &[type='radio'] {
+      border-radius: 50%;
+    }
+
+    &:checked[type='checkbox'] {
+      background-image: url('../../../../asseets//icons/check.svg');
+    }
+    &:checked[type='radio'] {
+      background-image: url('../../../../asseets//icons/radio.svg');
+    }
+
+    &-default:checked {
+      @include muop-check-radio-input-theme(
+        $bd-color-default,
+        $bg-color-default
+      );
+    }
+    &-info:checked {
+      @include muop-check-radio-input-theme($bd-color-info, $bg-color-info);
+    }
+    &-secondary:checked {
+      @include muop-check-radio-input-theme(
+        $bd-color-secondary,
+        $bg-color-secondary
+      );
+    }
+    &-warning:checked {
+      @include muop-check-radio-input-theme(
+        $bd-color-warning,
+        $bg-color-warning
+      );
+    }
+    &-danger:checked {
+      @include muop-check-radio-input-theme($bd-color-danger, $bg-color-danger);
+    }
+
+    &:disabled {
+      // background-color: hsl(0, 0%, 70%);
+      border-color: hsl(0, 0%, 70%);
+      cursor: default;
+    }
+  }
+}

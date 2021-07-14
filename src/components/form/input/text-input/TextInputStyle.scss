@@ -1,4 +1,4 @@
-@import '../../../index.scss';
+@import '../../../../index.scss';
 
 @mixin muop-text-input-theme($bd, $ft) {
   box-sizing: border-box;
@@ -83,6 +83,8 @@
   }
 
   .muop-text-label {
+    text-align: center;
+
     &-lg {
       font-size: $fs-xxlarge;
     }

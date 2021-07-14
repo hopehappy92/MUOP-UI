@@ -1,6 +1,7 @@
 import React from 'react';
 
-import TextInput from './input/TextInput';
+import TextInputComponent from './input/text-input/TextInput';
+import CheckRadioInputComponent from './input/check-radio/CheckRadioInput';
 import FormTextarea from './textarea/FormTextarea';
 
 import './FormStyle.scss';
@@ -14,6 +15,7 @@ const Form: React.FC<FormProps> = ({ ...props }: FormProps) => (
 );
 
 export default Object.assign(Form, {
-  Input: TextInput,
+  TextInput: TextInputComponent,
+  CheckRadioInput: CheckRadioInputComponent,
   Textarea: FormTextarea
 });

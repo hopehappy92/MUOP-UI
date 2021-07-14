@@ -2,10 +2,10 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import TextInput, { TextInputProps } from './TextInput';
-import MyButton from '../../button/Button';
+import MyButton from '../../../button/Button';
 
 export default {
-  title: 'Components/Form/TextInput',
+  title: 'Components/Form/Input/TextInput',
   component: TextInput,
   args: {
     type: 'text',

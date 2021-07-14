@@ -6,10 +6,11 @@ type TTheme = 'default' | 'info' | 'secondary' | 'warning' | 'danger';
 type TSize = 'sm' | 'md' | 'lg';
 type TVariant = 'standard' | 'filled' | 'outlined';
 type TLabelPosition = 'left' | 'right';
+type TType = 'email' | 'text' | 'password';
 
 export interface TextInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  type?: string;
+  type: TType;
   theme?: TTheme;
   fontSize?: TSize;
   disabled?: boolean;
@@ -83,7 +84,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const Label = (
       <label
-        htmlFor="muop-text-input"
+        htmlFor={`muop-text-input-${hash}`}
         className={[`muop-text-label`, `muop-text-label-${fontSize}`].join(' ')}
       >
         {label}

@@ -13,13 +13,14 @@ const Template: Story<FormProps> = (args: FormProps) => {
   const { className } = args;
   return (
     <Form>
-      <Form.Input
+      <Form.TextInput
         className={className}
         theme="secondary"
-        size="md"
+        // size="md"
         disabled={false}
         variant="filled"
         labelPosition="left"
+        type="text"
       />
       <Form.Textarea innerText="???" rows={10} cols={30} />
     </Form>
@@ -31,10 +32,16 @@ export const Default = Template.bind({});
 export const Login: Story<FormProps> = () => {
   const idRef = useRef<HTMLInputElement>(null);
   const pwdRef = useRef<HTMLInputElement>(null);
+  const termsRef = useRef<HTMLInputElement>(null);
 
   const onSubmitBtn = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('나와라!', idRef.current?.value, pwdRef.current?.value);
+    console.log(
+      '나와라!',
+      idRef.current?.value,
+      pwdRef.current?.value,
+      termsRef.current?.checked
+    );
   };
 
   return (
@@ -42,24 +49,31 @@ export const Login: Story<FormProps> = () => {
       <div
         style={{
           width: '400px',
-          height: '150px',
+          height: '180px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between'
         }}
       >
-        <Form.Input
+        <Form.TextInput
           ref={idRef}
           theme="secondary"
           variant="outlined"
           label="ID"
+          type="text"
         />
-        <Form.Input
+        <Form.TextInput
           ref={pwdRef}
           theme="secondary"
           variant="outlined"
           label="Password"
           type="password"
+        />
+        <Form.CheckRadioInput
+          ref={termsRef}
+          type="checkbox"
+          theme="secondary"
+          label="약관을 확인했습니다."
         />
         <MyButton theme="secondary" outline type="submit">
           Submit
