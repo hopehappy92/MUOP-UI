@@ -1,48 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Button from '../button/Button';
+
+import './DropdownStyle.scss';
 
 export interface DropdownProps {
   /** children */
   children?: React.ReactNode;
+  /** title of dropdown toggle */
+  title?: string;
 }
 
-export interface ToggleButtonProps extends DropdownProps {
-  hi1: string;
-}
+const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
+  const { title, children } = props;
+  const [open, setOpen] = useState<boolean>(false);
+  const handleClick = () => {
+    console.log('click & open is', !open);
+    setOpen(prev => !prev);
+  };
+  return (
+    <div className="muop-dropdown">
+      <Button outline className="muop-dropdown-button" onClick={handleClick}>
+        {title}
+      </Button>
+      <div className={`muop-dropdown-menu ${open ? 'open' : 'close'}`}>
+        {children}
+      </div>
+    </div>
+  );
+};
 
-export interface MenuProps extends DropdownProps {
-  hi2: string;
-}
-
-const ToggleButton: React.FC<ToggleButtonProps> = ({
-  ...props
-}: ToggleButtonProps) => (
-  <div>
-    toggle button {props.hi1} {props.children}
-  </div>
-);
-
-const Menu: React.FC<MenuProps> = ({ ...props }: MenuProps) => (
-  <div>menu {props.hi2}</div>
-);
-
-const Dropdown: React.FC = () => <div>dropdown</div>;
-
-export default Object.assign(Dropdown, {
-  ToggleButton({ ...props }: ToggleButtonProps): JSX.Element {
-    return <ToggleButton hi1={props.hi1} />;
-  },
-  Menu({ ...props }: MenuProps): JSX.Element {
-    return <Menu hi2={props.hi2} />;
-  }
-});
-
-// const DropdownComponent: React.FC = () => <div>menu</div>;
-
-// const Example: React.FC = () => (
-//   <Dropdown>
-//     <Dropdown.ToggleButton hi1="hi1" />
-//     <Dropdown.Menu hi2="hi2" />
-//   </Dropdown>
-// );
-
-// export default Dropdown;
+export default Dropdown;
