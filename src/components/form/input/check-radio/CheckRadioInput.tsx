@@ -1,5 +1,7 @@
 import React, { forwardRef, ReactElement } from 'react';
 
+import { v4 as uuid } from 'uuid';
+
 import './CheckRadioInputStyle.scss';
 
 type TType = 'checkbox' | 'radio';
@@ -26,7 +28,7 @@ const CheckRadioInput = forwardRef<HTMLInputElement, CheckRadioInputProps>(
     }: CheckRadioInputProps,
     ref
   ) => {
-    const hash = Math.floor(Math.random() * 100);
+    const hash = uuid().split('-')[0];
 
     return (
       <div
@@ -60,5 +62,5 @@ const CheckRadioInput = forwardRef<HTMLInputElement, CheckRadioInputProps>(
   }
 );
 
-CheckRadioInput.displayName = 'TextInput';
+CheckRadioInput.displayName = 'CheckRadioInput';
 export default CheckRadioInput;

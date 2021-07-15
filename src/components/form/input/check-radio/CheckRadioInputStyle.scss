@@ -29,15 +29,21 @@
 
     &-disabled {
       color: hsl(0, 0%, 70%);
+      cursor: default;
     }
+  }
+
+  .muop-check-radio-input::-ms-expand {
+    display: none; // < appearance: none > for ie
   }
 
   .muop-check-radio-input {
     border-radius: 5px;
     cursor: pointer;
 
-    appearance: none;
-    -webkit-appearance: none;
+    appearance: none; // OS 및 브라우저 요소 자체 디자인 변경에 쓰임
+    -webkit-appearance: none; // safari & chrome
+    -moz-appearance: none; // firefox
 
     width: 16px;
     height: 16px;

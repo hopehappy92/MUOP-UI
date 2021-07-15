@@ -1,5 +1,7 @@
 import React, { forwardRef, ReactElement, useRef } from 'react';
 
+import { v4 as uuid } from 'uuid';
+
 import './TextInputStyle.scss';
 
 type TTheme = 'default' | 'info' | 'secondary' | 'warning' | 'danger';
@@ -40,7 +42,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     }: TextInputProps,
     ref
   ) => {
-    const hash = Math.floor(Math.random() * 100);
+    const hash = uuid().split('-')[0];
 
     const wrapperRef = useRef<HTMLDivElement>(null);
 
