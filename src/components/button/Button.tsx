@@ -4,13 +4,6 @@ import './ButtonStyle.scss';
 
 import Dropdown from '../dropdown/Dropdown';
 
-const Example: React.FC = () => (
-  <Dropdown>
-    <Dropdown.ToggleButton hi1="hi1" />
-    <Dropdown.Menu hi2="hi2" />
-  </Dropdown>
-);
-
 export type TTheme = 'danger' | 'warning' | 'success' | 'info' | 'default';
 
 export type TSize = 'lg' | 'md' | 'sm';

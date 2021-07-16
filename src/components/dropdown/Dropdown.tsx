@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '../button/Button';
+import Popper from '../popper/Popper';
 
 import './DropdownStyle.scss';
 
@@ -10,21 +11,25 @@ export interface DropdownProps {
   title?: string;
 }
 
-const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
-  const { title, children } = props;
+const Dropdown: React.FC<DropdownProps> = ({
+  title,
+  children
+}: DropdownProps) => {
+  const anchorRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState<boolean>(false);
   const handleClick = () => {
-    console.log('click & open is', !open);
     setOpen(prev => !prev);
   };
   return (
     <div className="muop-dropdown">
-      <Button outline className="muop-dropdown-button" onClick={handleClick}>
-        {title}
-      </Button>
-      <div className={`muop-dropdown-menu ${open ? 'open' : 'close'}`}>
-        {children}
+      <div ref={anchorRef} style={{ display: 'inline-block' }}>
+        <Button outline className="muop-dropdown-button" onClick={handleClick}>
+          {title}
+        </Button>
       </div>
+      <Popper anchorEl={anchorRef.current} open={open} placement="bottom-start">
+        <div style={{ border: '1px solid gray' }}>{children}</div>
+      </Popper>
     </div>
   );
 };
