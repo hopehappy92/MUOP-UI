@@ -1,0 +1,37 @@
+.popper-story {
+  padding: 50px;
+
+  &-top {
+    display: flex;
+    justify-content: center;
+  }
+  &-side {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    &-left {
+      display: flex;
+      flex-direction: column;
+      button + button {
+        margin-left: 0;
+      }
+      button {
+        margin-bottom: 4px;
+      }
+    }
+    &-right {
+      display: flex;
+      flex-direction: column;
+      button + button {
+        margin-left: 0;
+      }
+      button {
+        margin-bottom: 4px;
+      }
+    }
+  }
+  &-bottom {
+    display: flex;
+    justify-content: center;
+  }
+}

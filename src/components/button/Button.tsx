@@ -22,7 +22,7 @@ export interface ButtonProps {
   /** children */
   children: React.ReactNode;
   /** click event */
-  onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
