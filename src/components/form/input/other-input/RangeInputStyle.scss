@@ -1,0 +1,170 @@
+@import '../../../../index.scss';
+
+// https://github.com/Dev-Jeromebaek/design_note/issues/1
+
+@mixin muop-range-input-thumb-size($size) {
+  &::-webkit-slider-thumb {
+    height: $size;
+    width: $size;
+  }
+}
+
+@mixin muop-range-input-thumb-rectangle-size($size) {
+  &::-webkit-slider-thumb {
+    height: $size * 2;
+    width: $size;
+  }
+}
+
+@mixin muop-range-input-thumb-rad($rad) {
+  &::-webkit-slider-thumb {
+    border-radius: $rad;
+  }
+}
+
+@mixin muop-range-input-theme($bg, $cc) {
+  > input {
+    background-color: $bg;
+
+    &::-webkit-slider-thumb {
+      background-color: $cc;
+    }
+  }
+}
+
+.muop-range-input-wrapper {
+  &-default {
+    @include muop-range-input-theme($default-50, $default);
+  }
+  &-info {
+    @include muop-range-input-theme($info-60, $info);
+  }
+  &-secondary {
+    @include muop-range-input-theme($secondary-70, $secondary);
+  }
+  &-warning {
+    @include muop-range-input-theme($warning-90, $warning);
+  }
+  &-danger {
+    @include muop-range-input-theme($danger-80, $danger);
+  }
+
+  .muop-range-input {
+    -webkit-appearance: none;
+    width: 100%;
+
+    &-slider-sm {
+      height: 5px;
+    }
+    &-slider-md {
+      height: 10px;
+    }
+    &-slider-lg {
+      height: 15px;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    &-thumb-circle {
+      @include muop-range-input-thumb-rad(50%);
+    }
+    &-thumb-rectangle,
+    &-thumb-square {
+      @include muop-range-input-thumb-rad(2px);
+    }
+
+    &-thumb-sm {
+      @include muop-range-input-thumb-size(5px);
+    }
+    &-thumb-md {
+      @include muop-range-input-thumb-size(10px);
+    }
+    &-thumb-lg {
+      @include muop-range-input-thumb-size(15px);
+    }
+
+    &-thumb-rectangle-sm {
+      @include muop-range-input-thumb-rectangle-size(5px);
+    }
+    &-thumb-rectangle-md {
+      @include muop-range-input-thumb-rectangle-size(10px);
+    }
+    &-thumb-rectangle-lg {
+      @include muop-range-input-thumb-rectangle-size(15px);
+    }
+  }
+}
+
+// input[type='range']::-webkit-slider-runnable-track {
+//   width: 100%;
+//   height: 5px;
+//   cursor: pointer;
+//   animate: 0.2s;
+//   box-shadow: 0px 0px 0px #000000;
+//   background: #2497e3;
+//   border-radius: 1px;
+//   border: 0px solid #000000;
+// }
+
+// input[type='range']:focus::-webkit-slider-runnable-track {
+//   background: #2497e3;
+// }
+// input[type='range']::-moz-range-track {
+//   width: 100%;
+//   height: 5px;
+//   cursor: pointer;
+//   animate: 0.2s;
+//   box-shadow: 0px 0px 0px #000000;
+//   background: #2497e3;
+//   border-radius: 1px;
+//   border: 0px solid #000000;
+// }
+// input[type='range']::-moz-range-thumb {
+//   box-shadow: 0px 0px 0px #000000;
+//   border: 1px solid #2497e3;
+//   height: 18px;
+//   width: 18px;
+//   border-radius: 25px;
+//   background: #a1d0ff;
+//   cursor: pointer;
+// }
+// input[type='range']::-ms-track {
+//   width: 100%;
+//   height: 5px;
+//   cursor: pointer;
+//   animate: 0.2s;
+//   background: transparent;
+//   border-color: transparent;
+//   color: transparent;
+// }
+// input[type='range']::-ms-fill-lower {
+//   background: #2497e3;
+//   border: 0px solid #000000;
+//   border-radius: 2px;
+//   box-shadow: 0px 0px 0px #000000;
+// }
+// input[type='range']::-ms-fill-upper {
+//   background: #2497e3;
+//   border: 0px solid #000000;
+//   border-radius: 2px;
+//   box-shadow: 0px 0px 0px #000000;
+// }
+// input[type='range']::-ms-thumb {
+//   margin-top: 1px;
+//   box-shadow: 0px 0px 0px #000000;
+//   border: 1px solid #2497e3;
+//   height: 18px;
+//   width: 18px;
+//   border-radius: 25px;
+//   background: #a1d0ff;
+//   cursor: pointer;
+// }
+// input[type='range']:focus::-ms-fill-lower {
+//   background: #2497e3;
+// }
+// input[type='range']:focus::-ms-fill-upper {
+//   background: #2497e3;
+// }
