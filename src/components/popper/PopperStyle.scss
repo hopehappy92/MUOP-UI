@@ -1,37 +1,35 @@
+@import '../../index.scss';
+
+@mixin btn-margin {
+  button + button {
+    margin-left: 0;
+  }
+  button {
+    margin-bottom: 4px;
+  }
+}
+
 .popper-story {
   padding: 50px;
 
   &-top {
-    display: flex;
-    justify-content: center;
+    @include center-box;
   }
   &-side {
-    display: flex;
-    justify-content: space-between;
+    @include space-between-box;
     padding: 0 50px;
     &-left {
       display: flex;
       flex-direction: column;
-      button + button {
-        margin-left: 0;
-      }
-      button {
-        margin-bottom: 4px;
-      }
+      @include btn-margin;
     }
     &-right {
       display: flex;
       flex-direction: column;
-      button + button {
-        margin-left: 0;
-      }
-      button {
-        margin-bottom: 4px;
-      }
+      @include btn-margin;
     }
   }
   &-bottom {
-    display: flex;
-    justify-content: center;
+    @include center-box;
   }
 }

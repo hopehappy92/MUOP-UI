@@ -63,3 +63,15 @@ $md: calc-width(6);
 $sm: calc-width(3);
 $x-sm: calc-width(2);
 $xx-sm: calc-width(1);
+
+@mixin center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin space-between-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

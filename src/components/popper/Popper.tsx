@@ -17,7 +17,7 @@ const TPlacement = {
 };
 type TPlacement = typeof TPlacement[keyof typeof TPlacement];
 
-interface PopperProps extends React.HTMLAttributes<HTMLFormElement> {
+interface PopperProps extends React.HTMLAttributes<HTMLDivElement> {
   anchorEl: HTMLElement | null;
   placement?: TPlacement;
   open: boolean;
@@ -88,7 +88,6 @@ const Popper: React.FC<PopperProps> = ({
     ? ReactDOM.createPortal(
         <div
           role="tooltip"
-          x-placement="bottom"
           style={{
             position: 'absolute',
             willChange: 'transform',

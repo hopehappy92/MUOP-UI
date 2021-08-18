@@ -11,18 +11,15 @@ export default {
   component: Popper
 } as Meta;
 
-const Template: Story<PopperProps> = (args: PopperProps) => {
+const Template: Story<PopperProps> = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const [open, setOpen] = useState<boolean>(false);
   const [placement, setPlacement] = React.useState<TPlacement>();
 
-  // 이렇게 쓰면 onClick={(e) => handleClick(e, 'top-start')}
-  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>, newPlacement: TPlacement) => {
-  // 이렇게 쓰면 onClick={handleClick('top-start')} -> 나는 이게 더 좋음!
   const handleClick = (newPlacement: TPlacement) => (
-    event: React.MouseEvent<HTMLButtonElement>
+    e: React.MouseEvent<HTMLButtonElement>
   ) => {
-    setAnchorEl(event.currentTarget);
+    setAnchorEl(e.currentTarget);
     setOpen(prev => placement !== newPlacement || !prev);
     setPlacement(newPlacement);
   };
