@@ -9,6 +9,14 @@
   }
 }
 
+.muop-popper {
+  display: none;
+  position: absolute;
+  will-change: transform;
+  top: 0;
+  left: 0;
+}
+
 .popper-story {
   padding: 50px;
 

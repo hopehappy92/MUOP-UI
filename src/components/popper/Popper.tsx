@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 
+import './PopperStyle.scss';
+
 const TPlacement = {
   bottomStart: 'bottom-start',
   bottom: 'bottom',
@@ -32,6 +34,8 @@ const Popper: React.FC<PopperProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (ref && ref.current && anchorEl) {
+      ref.current.style.display = 'block';
+
       const { top, bottom, left, right } = anchorEl.getBoundingClientRect();
       const horiCenter = (right + left) / 2;
       const vertiCenter = (top + bottom) / 2;
@@ -83,19 +87,10 @@ const Popper: React.FC<PopperProps> = ({
           break;
       }
     }
-  }, [anchorEl, placement, open]);
+  }, [anchorEl, placement]);
   return open
     ? ReactDOM.createPortal(
-        <div
-          role="tooltip"
-          style={{
-            position: 'absolute',
-            willChange: 'transform',
-            top: '0px',
-            left: '0px'
-          }}
-          ref={ref}
-        >
+        <div className="muop-popper" role="tooltip" ref={ref}>
           {children}
         </div>,
         document.getElementById('root')!
