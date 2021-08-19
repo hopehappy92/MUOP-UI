@@ -87,7 +87,7 @@ const Popper: React.FC<PopperProps> = ({
           break;
       }
     }
-  }, [anchorEl, placement]);
+  }, [anchorEl, placement, open]);
   return open
     ? ReactDOM.createPortal(
         <div className="muop-popper" role="tooltip" ref={ref}>
