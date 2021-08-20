@@ -1,0 +1,43 @@
+@import '../../index.scss';
+
+@mixin btn-margin {
+  button + button {
+    margin-left: 0;
+  }
+  button {
+    margin-bottom: 4px;
+  }
+}
+
+.muop-popper {
+  display: none;
+  position: absolute;
+  will-change: transform;
+  top: 0;
+  left: 0;
+}
+
+.popper-story {
+  padding: 50px;
+
+  &-top {
+    @include center-box;
+  }
+  &-side {
+    @include space-between-box;
+    padding: 0 50px;
+    &-left {
+      display: flex;
+      flex-direction: column;
+      @include btn-margin;
+    }
+    &-right {
+      display: flex;
+      flex-direction: column;
+      @include btn-margin;
+    }
+  }
+  &-bottom {
+    @include center-box;
+  }
+}

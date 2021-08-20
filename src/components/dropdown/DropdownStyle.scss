@@ -1,0 +1,23 @@
+@import '../../index.scss';
+
+.muop-dropdown {
+  &-button {
+    margin-bottom: 8px;
+  }
+
+  &-menu {
+    width: 8rem;
+    border: 1px solid $bd-color-default;
+    border-radius: 0.25rem;
+
+    &.open {
+      display: block;
+      height: auto;
+    }
+
+    &.close {
+      display: none;
+      height: 0;
+    }
+  }
+}

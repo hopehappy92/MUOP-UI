@@ -2,6 +2,8 @@ import React from 'react';
 
 import './ButtonStyle.scss';
 
+import Dropdown from '../dropdown/Dropdown';
+
 export type TTheme = 'danger' | 'warning' | 'success' | 'info' | 'default';
 
 export type TSize = 'lg' | 'md' | 'sm';
@@ -20,7 +22,7 @@ export interface ButtonProps {
   /** children */
   children: React.ReactNode;
   /** click event */
-  onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
