@@ -1,0 +1,93 @@
+@import '../../../../index.scss';
+
+@mixin muop-switch-rail-size($width, $height) {
+  width: $width;
+  height: $height;
+
+  > label {
+    width: $height;
+    height: $height;
+  }
+  > input {
+    width: $width;
+    height: $height;
+  }
+}
+
+@mixin muop-switch-theme($rail, $btn) {
+  > div {
+    background-color: $rail;
+
+    > label {
+      background-color: $btn;
+    }
+  }
+}
+
+.muop-switch-wrapper {
+  display: flex;
+  align-items: center;
+  width: max-content;
+
+  &-left {
+    flex-direction: row-reverse;
+  }
+  &-right {
+    flex-direction: row;
+  }
+  &-top {
+    flex-direction: column-reverse;
+  }
+  &-bottom {
+    flex-direction: column;
+  }
+
+  &-default {
+    @include muop-switch-theme($default-50, $default);
+  }
+  &-info {
+    @include muop-switch-theme($info-60, $info);
+  }
+  &-secondary {
+    @include muop-switch-theme($secondary-70, $secondary);
+  }
+  &-warning {
+    @include muop-switch-theme($warning-90, $warning);
+  }
+  &-danger {
+    @include muop-switch-theme($danger-80, $danger);
+  }
+  &-off {
+    @include muop-switch-theme(gray, white);
+  }
+  &-disabled {
+    @include muop-switch-theme(gray, white);
+    > div > input {
+      cursor: default !important;
+    }
+  }
+
+  > div {
+    @include muop-switch-rail-size(40px, 20px);
+    border-radius: 50px;
+    margin: 5px;
+
+    > label {
+      border-radius: 50%;
+      position: absolute;
+      transition: left 0.2s ease-in-out;
+      // transition: all 0.2s ease-in-out;
+    }
+    > input {
+      position: absolute;
+      appearance: none;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+
+  > p {
+    margin: 0;
+  }
+}
