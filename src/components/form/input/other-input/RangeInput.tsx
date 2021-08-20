@@ -13,6 +13,9 @@ export interface RangeInputProps
   thumbStyle?: TThumb;
   thumbSize?: TSize;
   sliderSize?: TSize;
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
 const RangeInput = forwardRef<HTMLInputElement, RangeInputProps>(
@@ -21,7 +24,11 @@ const RangeInput = forwardRef<HTMLInputElement, RangeInputProps>(
       theme = 'default',
       thumbStyle = 'circle',
       thumbSize = 'md',
-      sliderSize = 'md'
+      sliderSize = 'md',
+      min = 0,
+      max = 100,
+      step = 1,
+      ...props
     }: RangeInputProps,
     ref
   ) => {
@@ -46,6 +53,10 @@ const RangeInput = forwardRef<HTMLInputElement, RangeInputProps>(
             }${thumbSize}`,
             `muop-range-input-slider-${sliderSize}`
           ].join(' ')}
+          min={min}
+          max={max}
+          step={step}
+          {...props}
         />
       </div>
     );
