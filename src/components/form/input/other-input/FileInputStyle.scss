@@ -1,1 +1,106 @@
 @import '../../../../index.scss';
+
+$width: 300px;
+$height: 80px;
+$padding: 15px;
+
+@mixin flex-box($flex, $jc, $ai, $fd: 'row') {
+  display: $flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+}
+
+@mixin muop-file-input-theme($out, $in, $font) {
+  background-color: $out;
+  border-radius: 5px;
+
+  > label {
+    background-color: $in;
+    border-radius: 5px;
+    color: $font;
+  }
+
+  .muop-file-input-label-span > span {
+    border: 1px solid $font;
+    border-radius: 15px;
+    padding: 2px 5px;
+  }
+}
+
+.muop-file-input-wrapper {
+  @include flex-box(flex, center, center);
+  box-sizing: border-box;
+  width: $width;
+  min-height: $height;
+  padding: $padding;
+
+  &-default {
+    @include muop-file-input-theme($default-50, $default, $ft-color-default);
+  }
+  &-info {
+    @include muop-file-input-theme($info-60, $info, $ft-color-info);
+  }
+  &-secondary {
+    @include muop-file-input-theme(
+      $secondary-70,
+      $secondary,
+      $ft-color-secondary
+    );
+  }
+  &-warning {
+    @include muop-file-input-theme($warning-90, $warning, $ft-color-warning);
+  }
+  &-danger {
+    @include muop-file-input-theme($danger-80, $danger, $ft-color-danger);
+  }
+  &-disabled {
+    @include muop-file-input-theme(gray, white, black);
+    > div > input {
+      cursor: default !important;
+    }
+  }
+
+  > input[type='file']:first-of-type {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  > label {
+    display: block;
+    width: inherit;
+    min-height: 50px;
+  }
+
+  .muop-file-input-label-default {
+    @include flex-box(flex, center, center);
+    font-weight: 700;
+  }
+
+  .muop-file-input-label-span {
+    @include flex-box(flex, center, center, column);
+    font-size: 12px;
+    max-width: $width - 2 * $padding;
+
+    > span {
+      display: flex;
+      margin: 5px;
+      width: 90%;
+
+      > span:first-of-type {
+        width: 75%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      > span:last-of-type {
+        width: 25%;
+      }
+    }
+  }
+}
